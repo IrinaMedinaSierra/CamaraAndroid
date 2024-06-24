@@ -15,19 +15,24 @@
   "devDependencies": {
     "cordova-android": "^13.0.0",
     "cordova-plugin-camera": "^7.0.0",
+    "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-file": "^8.1.0",
-    "cordova-plugin-media-capture": "^5.0.0"
+    "cordova-plugin-media-capture": "^5.0.0",
+    "cordova-plugin-photos": "^1.0.9"
   },
   "cordova": {
     "platforms": [
       "android"
     ],
     "plugins": {
-      "cordova-plugin-camera": {},
+      "cordova-plugin-camera": {
+        "ANDROIDX_CORE_VERSION": "1.8.0"
+      },
       "cordova-plugin-file": {
         "ANDROIDX_WEBKIT_VERSION": "1.4.0"
       },
-      "cordova-plugin-media-capture": {}
+      "cordova-plugin-media-capture": {},
+      "cordova-plugin-photos": {}
     }
   }
 }

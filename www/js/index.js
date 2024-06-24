@@ -10,13 +10,18 @@ document.addEventListener("deviceready",()=>{ //cuando el dispositivo este prepa
     takePhotoButton.addEventListener("click", ()=> {
         navigator.camera.getPicture(onSuccess, onFail, {
             quality: 90,
-            destinationType: Camera.DestinationType.DATA_URL
+            destinationType: Camera.DestinationType.FILE_URI,
+            saveToPhotoAlbum:true, //guardarlo en la galeria
+            sourceType:Camera.PictureSourceType.CAMERA,
+            mediaType:Camera.MediaType.PICTURE,
+            encodingType:Camera.EncodingType.JPEG,
+            cameraDirection: Camera.Direction.FRONT,
         });
 
         function onSuccess(imageData) {
             const dataUrl = "data:image/jpeg;base64" + imageData;
             const photoId = photoIdCounter++; /***** faltaba ++ ****/
-            guardarFoto({id: photoId, dataUrl});
+            guardarFoto({id: photoId, dataUrl: imageData});
             setNextPhotoId(photoIdCounter);
         }
 
